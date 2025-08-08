@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=3 uid="uid://nu8p42q12ldf"]
+
+[ext_resource type="Script" uid="uid://djedqvivtl8w2" path="res://character_creator/CharacterCreatorMenu.gd" id="1_frhxs"]
+[ext_resource type="PackedScene" uid="uid://cgfgdb7wkqojt" path="res://character_creator/ArrowInputBox.tscn" id="2_i6f4e"]
+[ext_resource type="PackedScene" uid="uid://b4jy313gkom5s" path="res://character_creator/ShapekeySlider.tscn" id="3_2cb8h"]
+[ext_resource type="Texture2D" uid="uid://c0bhfsw6ahh7x" path="res://assets/icons/skin_swatch_unity.png" id="4_2ui70"]
+[ext_resource type="Script" uid="uid://dc0rrk37vpqo2" path="res://character_creator/ColorPickerRect.gd" id="5_nyets"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tj8q"]
+bg_color = Color(0.458824, 0.933333, 0.917647, 1)
+border_width_left = 35
+border_width_top = 5
+border_width_right = 35
+border_width_bottom = 5
+border_color = Color(0.458824, 0.933333, 0.917647, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgreb"]
+bg_color = Color(0.30309, 0.853671, 0.836574, 1)
+border_width_left = 35
+border_width_top = 5
+border_width_right = 35
+border_width_bottom = 5
+border_color = Color(0.301961, 0.854902, 0.835294, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0f2w"]
+bg_color = Color(0.247059, 0.772549, 0.756863, 1)
+border_width_left = 35
+border_width_top = 5
+border_width_right = 35
+border_width_bottom = 5
+border_color = Color(0.247059, 0.772549, 0.756863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhbxl"]
+
+[node name="CharacterCreatorMenu" type="CanvasLayer" node_paths=PackedStringArray("height_slider", "sex_input", "hair_input", "image_color_picker", "save_button")]
+script = ExtResource("1_frhxs")
+height_slider = NodePath("HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer/HeightInputHBox")
+sex_input = NodePath("HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer/SexInputHBox")
+hair_input = NodePath("HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer/HairInputBox")
+image_color_picker = NodePath("HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer/SkinInputHBox/TextureRect")
+save_button = NodePath("HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer/SaveButton")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxFlat_3tj8q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgreb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q0f2w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3tj8q")
+text = "Back"
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Control"]
+layout_mode = 2
+offset_right = 548.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 0.231373)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Control/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="SexInputHBox" parent="HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("2_i6f4e")]
+layout_mode = 2
+field_name = "Sex"
+
+[node name="HeightInputHBox" parent="HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("3_2cb8h")]
+layout_mode = 2
+
+[node name="SkinInputHBox" type="HBoxContainer" parent="HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FieldName" type="Label" parent="HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer/SkinInputHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Skin"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer/SkinInputHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vhbxl")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer/SkinInputHBox"]
+custom_minimum_size = Vector2(260, 125)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_2ui70")
+expand_mode = 1
+script = ExtResource("5_nyets")
+
+[node name="HairInputBox" parent="HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("2_i6f4e")]
+layout_mode = 2
+field_name = "Hair"
+
+[node name="SaveButton" type="Button" parent="HBoxContainer/Control/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxFlat_3tj8q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgreb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q0f2w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3tj8q")
+text = "Save"

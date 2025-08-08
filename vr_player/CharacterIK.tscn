@@ -1,0 +1,97 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl34ohel24sig"]
+
+[ext_resource type="Script" uid="uid://df7j0ab7lmhoy" path="res://addons/libik/script/pole_bone_constraint.gd" id="3_whyyp"]
+
+[node name="GodotIK" type="GodotIK"]
+
+[node name="HeadEffector" type="GodotIKEffector" parent="."]
+bone_name = "Head"
+bone_idx = 44
+chain_length = 3
+transform_mode = 3
+influence = 0.8
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.562, 0.0295133)
+
+[node name="LeftHandEffector" type="GodotIKEffector" parent="."]
+bone_name = "LeftHand"
+bone_idx = 8
+chain_length = 3
+transform_mode = 3
+transform = Transform3D(-0.0991438, 0.933013, -0.345916, -0.87001, -0.25, -0.42495, -0.482963, 0.258819, 0.836516, 0.380165, 1.14183, 0.222714)
+
+[node name="LowerArmPoleConstraint" type="GodotIKConstraint" parent="LeftHandEffector"]
+bone_name = "LeftLowerArm"
+bone_idx = 7
+script = ExtResource("3_whyyp")
+pole_direction = Vector3(0, 0, -1)
+metadata/_custom_type_script = "uid://df7j0ab7lmhoy"
+
+[node name="UpperArmPoleConstraint" type="GodotIKConstraint" parent="LeftHandEffector"]
+bone_name = "LeftUpperArm"
+bone_idx = 6
+script = ExtResource("3_whyyp")
+pole_direction = Vector3(0.2, 0.1, -0.2)
+metadata/_custom_type_script = "uid://df7j0ab7lmhoy"
+
+[node name="RightHandEffector" type="GodotIKEffector" parent="."]
+bone_name = "RightHand"
+bone_idx = 27
+chain_length = 3
+transform_mode = 3
+transform = Transform3D(-0.0653857, -0.99786, 0, 0.869785, -0.0569935, -0.490128, 0.489079, -0.0320474, 0.87165, -0.38, 1.142, 0.38)
+
+[node name="LowerArmPoleConstraint" type="GodotIKConstraint" parent="RightHandEffector"]
+bone_name = "RightLowerArm"
+bone_idx = 26
+script = ExtResource("3_whyyp")
+pole_direction = Vector3(0, 0, -1)
+metadata/_custom_type_script = "uid://df7j0ab7lmhoy"
+
+[node name="UpperArmPoleConstraint" type="GodotIKConstraint" parent="RightHandEffector"]
+bone_name = "RightUpperArm"
+bone_idx = 25
+script = ExtResource("3_whyyp")
+pole_direction = Vector3(-0.2, 0.1, -0.2)
+metadata/_custom_type_script = "uid://df7j0ab7lmhoy"
+
+[node name="LeftFootEffector" type="GodotIKEffector" parent="."]
+bone_name = "LeftFoot"
+bone_idx = 47
+chain_length = 3
+transform_mode = 3
+transform = Transform3D(-1, -1.50996e-07, -6.60024e-15, 0, -4.37114e-08, 1, -1.50996e-07, 1, 4.37114e-08, 0.175903, 0, 0)
+
+[node name="PoleBoneConstraint" type="GodotIKConstraint" parent="LeftFootEffector"]
+bone_name = "LeftLowerLeg"
+bone_idx = 46
+script = ExtResource("3_whyyp")
+pole_direction = Vector3(0.2, 0, 1)
+forward = false
+metadata/_custom_type_script = "uid://df7j0ab7lmhoy"
+
+[node name="RightFootEffector" type="GodotIKEffector" parent="."]
+bone_name = "RightFoot"
+bone_idx = 51
+chain_length = 3
+transform_mode = 3
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, -0.204865, 0.118183, 0)
+
+[node name="PoleBoneConstraint" type="GodotIKConstraint" parent="RightFootEffector"]
+bone_name = "RightLowerLeg"
+bone_idx = 50
+script = ExtResource("3_whyyp")
+pole_direction = Vector3(-0.2, 0, 1)
+forward = false
+metadata/_custom_type_script = "uid://df7j0ab7lmhoy"
+
+[node name="RightKneeTarget" type="GodotIKEffector" parent="."]
+bone_name = "RightLowerLeg"
+bone_idx = 50
+influence = 0.2
+transform = Transform3D(1, 0, 0, 0, 0.974217, -0.225614, 0, 0.225614, 0.974217, -0.225, 0.425, 0.225)
+
+[node name="LeftKneeTarget" type="GodotIKEffector" parent="."]
+bone_name = "LeftLowerLeg"
+bone_idx = 46
+influence = 0.2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225, 0.425, 0.225)

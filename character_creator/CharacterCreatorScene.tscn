@@ -1,0 +1,262 @@
+[gd_scene load_steps=35 format=3 uid="uid://ccdtm7mvmsymu"]
+
+[ext_resource type="Script" uid="uid://yng4m7bg3w3p" path="res://character_creator/CharacterCreatorScene.gd" id="1_fgreb"]
+[ext_resource type="Sky" uid="uid://bm4jp3kglwjr5" path="res://materials/WhiteSkyBox.tres" id="2_mqtjs"]
+[ext_resource type="Script" uid="uid://310d1at0hdtj" path="res://addons/humanizer/scripts/utils/humanizer_editor_tool.gd" id="3_fdffd"]
+[ext_resource type="Script" uid="uid://cxvo23f3e47w4" path="res://character_creator/HumanizerRoot.gd" id="3_rq5hb"]
+[ext_resource type="Script" uid="uid://mjaai6jnilpj" path="res://addons/humanizer/scripts/resources/humanizer_overlay.gd" id="4_rq5hb"]
+[ext_resource type="Script" uid="uid://2f68fq1em1pv" path="res://addons/humanizer/scripts/resources/humanizer_material.gd" id="5_vhbxl"]
+[ext_resource type="Script" uid="uid://yh3tsoqrn1kf" path="res://addons/humanizer/scripts/resources/equipment.gd" id="6_gej34"]
+[ext_resource type="Script" uid="uid://mlxjgrfbd3l6" path="res://addons/humanizer/scripts/resources/human_config.gd" id="7_vfp0k"]
+[ext_resource type="PackedScene" uid="uid://csan8bknfmodc" path="res://addons/humanizer/data/animations/animation_tree.tscn" id="8_k2kng"]
+[ext_resource type="PackedScene" uid="uid://bfwcpmey0nn5q" path="res://assets/Oculus/controller_l.tscn" id="10_mqtjs"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="10_muu48"]
+[ext_resource type="PackedScene" uid="uid://7jm8mmycl8up" path="res://assets/Oculus/controller_r.tscn" id="11_00pcv"]
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="11_k2kng"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="13_mqtjs"]
+[ext_resource type="PackedScene" uid="uid://nu8p42q12ldf" path="res://character_creator/CharacterCreatorMenu.tscn" id="14_00pcv"]
+
+[sub_resource type="Environment" id="Environment_00pcv"]
+background_mode = 2
+background_energy_multiplier = 0.64
+sky = ExtResource("2_mqtjs")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_guk0l"]
+resource_name = "old_darkskinned_male"
+script = ExtResource("4_rq5hb")
+albedo_texture_path = "res://addons/humanizer/data/assets/equipment/body/Default/old_african_male/old_darkskinned_male_diffuse.png"
+normal_texture_path = ""
+ao_texture_path = ""
+color = Color(1, 1, 1, 1)
+offset = Vector2i(0, 0)
+normal_strength = 1.0
+
+[sub_resource type="Resource" id="Resource_0kbmh"]
+resource_local_to_scene = true
+script = ExtResource("5_vhbxl")
+overlays = Array[ExtResource("4_rq5hb")]([SubResource("Resource_guk0l")])
+base_material_path = "res://addons/humanizer/data/assets/equipment/body/Default/old_african_male/old_african_male.material.res"
+
+[sub_resource type="Resource" id="Resource_ggc85"]
+script = ExtResource("6_gej34")
+type = "DefaultBody"
+texture_name = "old_african_male"
+material_config = SubResource("Resource_0kbmh")
+
+[sub_resource type="Resource" id="Resource_7vfw0"]
+resource_local_to_scene = true
+resource_name = "eyeball"
+script = ExtResource("4_rq5hb")
+albedo_texture_path = "res://addons/humanizer/data/assets/equipment/eyes/Eyeballs/eyeball_albedo.png"
+normal_texture_path = ""
+ao_texture_path = ""
+color = Color(1, 1, 1, 1)
+offset = Vector2i(0, 0)
+normal_strength = 1.0
+
+[sub_resource type="Resource" id="Resource_wbb4b"]
+resource_local_to_scene = true
+resource_name = "iris"
+script = ExtResource("4_rq5hb")
+albedo_texture_path = "res://addons/humanizer/data/assets/equipment/eyes/Eyeballs/overlay_iris_albedo.png"
+normal_texture_path = ""
+ao_texture_path = ""
+color = Color(0.529412, 0.807843, 0.921569, 1)
+offset = Vector2i(0, 0)
+normal_strength = 1.0
+
+[sub_resource type="Resource" id="Resource_wul1o"]
+resource_local_to_scene = true
+script = ExtResource("5_vhbxl")
+overlays = Array[ExtResource("4_rq5hb")]([SubResource("Resource_7vfw0"), SubResource("Resource_wbb4b")])
+base_material_path = "res://addons/humanizer/data/assets/equipment/eyes/Eyeballs/Eyeball_material.res"
+
+[sub_resource type="Resource" id="Resource_8hcur"]
+script = ExtResource("6_gej34")
+type = "LeftEye-LowPolyEyeball"
+texture_name = "default"
+material_config = SubResource("Resource_wul1o")
+
+[sub_resource type="Resource" id="Resource_pmeld"]
+resource_local_to_scene = true
+resource_name = "eyeball"
+script = ExtResource("4_rq5hb")
+albedo_texture_path = "res://addons/humanizer/data/assets/equipment/eyes/Eyeballs/eyeball_albedo.png"
+normal_texture_path = ""
+ao_texture_path = ""
+color = Color(1, 1, 1, 1)
+offset = Vector2i(0, 0)
+normal_strength = 1.0
+
+[sub_resource type="Resource" id="Resource_emore"]
+resource_local_to_scene = true
+resource_name = "iris"
+script = ExtResource("4_rq5hb")
+albedo_texture_path = "res://addons/humanizer/data/assets/equipment/eyes/Eyeballs/overlay_iris_albedo.png"
+normal_texture_path = ""
+ao_texture_path = ""
+color = Color(0.529412, 0.807843, 0.921569, 1)
+offset = Vector2i(0, 0)
+normal_strength = 1.0
+
+[sub_resource type="Resource" id="Resource_gcdyt"]
+resource_local_to_scene = true
+script = ExtResource("5_vhbxl")
+overlays = Array[ExtResource("4_rq5hb")]([SubResource("Resource_pmeld"), SubResource("Resource_emore")])
+base_material_path = "res://addons/humanizer/data/assets/equipment/eyes/Eyeballs/Eyeball_material.res"
+
+[sub_resource type="Resource" id="Resource_0lb8e"]
+script = ExtResource("6_gej34")
+type = "RightEye-LowPolyEyeball"
+texture_name = "default"
+material_config = SubResource("Resource_gcdyt")
+
+[sub_resource type="Resource" id="Resource_gr2i2"]
+script = ExtResource("7_vfp0k")
+rig = "game_engine-RETARGETED"
+targets = {
+"african": 0.333333,
+"african-female-old": 0.0555556,
+"african-female-young": 0.111111,
+"african-male-old": 0.0555556,
+"african-male-young": 0.111111,
+"age": 0.5,
+"asian": 0.333333,
+"asian-female-old": 0.0555556,
+"asian-female-young": 0.111111,
+"asian-male-old": 0.0555556,
+"asian-male-young": 0.111111,
+"caucasian": 0.333333,
+"caucasian-female-old": 0.0555556,
+"caucasian-female-young": 0.111111,
+"caucasian-male-old": 0.0555556,
+"caucasian-male-young": 0.111111,
+"cupsize": 0.5,
+"firmness": 0.5,
+"gender": 0.5,
+"height": 0.5,
+"muscle": 0.5,
+"proportions": 0.5,
+"universal-female-old-averagemuscle-averageweight": 0.166667,
+"universal-female-young-averagemuscle-averageweight": 0.333333,
+"universal-male-old-averagemuscle-averageweight": 0.166667,
+"universal-male-young-averagemuscle-averageweight": 0.333333,
+"weight": 0.5
+}
+components = [&"main_collider", &"lod"]
+equipment = {
+"DefaultBody": SubResource("Resource_ggc85"),
+"LeftEye-LowPolyEyeball": SubResource("Resource_8hcur"),
+"RightEye-LowPolyEyeball": SubResource("Resource_0lb8e")
+}
+transforms = {}
+skin_color = Color(1, 1, 1, 1)
+eye_color = Color(0.529412, 0.807843, 0.921569, 1)
+eyebrow_color = Color(0.200784, 0, 0, 1)
+hair_color = Color(0.501961, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muu48"]
+albedo_color = Color(0.458824, 0.933333, 0.917647, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqtjs"]
+albedo_color = Color(0.458824, 0.933333, 0.917647, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_guk0l"]
+resource_local_to_scene = true
+size = Vector2(640, 360)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gskcg"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gskcg"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_gskcg")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pmeld"]
+resource_local_to_scene = true
+size = Vector3(640, 360, 0.02)
+
+[node name="CharacterCreatorScene" type="Node3D"]
+script = ExtResource("1_fgreb")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_00pcv")
+
+[node name="HumanizerRoot" type="Node3D" parent="." node_paths=PackedStringArray("controller")]
+script = ExtResource("3_rq5hb")
+controller = NodePath("../XROrigin3D/LeftHand")
+
+[node name="AutoUpdatingHumanizer" type="Node3D" parent="HumanizerRoot"]
+script = ExtResource("3_fdffd")
+human_config = SubResource("Resource_gr2i2")
+_baked_root_node = "CharacterBody3D"
+atlas_resolution = 2048
+_animator_scene = ExtResource("8_k2kng")
+_render_layers = 1
+_character_layers = 2
+_staticbody_layers = 1
+_character_mask = 3
+_ragdoll_layers = 4
+_ragdoll_mask = 5
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.971076, 0.238771, 0, -0.238771, 0.971076, 0.559542, 1.61109, 4.14089)
+light_energy = 0.252
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.563781, 1, 2.49727)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" instance=ExtResource("10_muu48")]
+laser_length = 1
+laser_material = SubResource("StandardMaterial3D_muu48")
+
+[node name="controller_l" parent="XROrigin3D/LeftHand" instance=ExtResource("10_mqtjs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("10_muu48")]
+laser_length = 1
+laser_material = SubResource("StandardMaterial3D_mqtjs")
+
+[node name="controller_r" parent="XROrigin3D/RightHand" instance=ExtResource("11_00pcv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="StartXR" parent="." instance=ExtResource("11_k2kng")]
+
+[node name="CharacterCreatorMenu" parent="." instance=ExtResource("13_mqtjs")]
+transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, -1.50915, 0.970806, 0)
+screen_size = Vector2(640, 360)
+viewport_size = Vector2(1280, 768)
+alpha_scissor_threshold = 1.0
+unshaded = true
+scene_properties_keys = PackedStringArray()
+
+[node name="Viewport" parent="CharacterCreatorMenu" index="0"]
+size = Vector2i(1280, 768)
+
+[node name="CharacterCreatorMenu" parent="CharacterCreatorMenu/Viewport" index="0" instance=ExtResource("14_00pcv")]
+
+[node name="Screen" parent="CharacterCreatorMenu" index="1"]
+mesh = SubResource("QuadMesh_guk0l")
+surface_material_override/0 = SubResource("StandardMaterial3D_gskcg")
+
+[node name="StaticBody3D" parent="CharacterCreatorMenu" index="2"]
+screen_size = Vector2(640, 360)
+viewport_size = Vector2(1280, 768)
+
+[node name="CollisionShape3D" parent="CharacterCreatorMenu/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_pmeld")
+
+[editable path="CharacterCreatorMenu"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://7jm8mmycl8up"]
+
+[ext_resource type="PackedScene" uid="uid://c13mdas7pxrcn" path="res://assets/Oculus/controller_r.fbx" id="1_324rt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5v2fl"]
+albedo_color = Color(0.458824, 0.933333, 0.917647, 1)
+
+[node name="controller_r" instance=ExtResource("1_324rt")]
+
+[node name="controller_ply" parent="Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5v2fl")

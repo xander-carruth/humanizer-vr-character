@@ -1,0 +1,86 @@
+{
+	"uid": "a3147082-c477-40d0-affc-263310a03a10",
+	"shapekeys": {
+		"african": 0.333333,
+		"age": 0.5,
+		"asian": 0.333333,
+		"caucasian": 0.333333,
+		"cupsize": 0.5,
+		"firmness": 0.5,
+		"gender": 0,
+		"height": 0.65,
+		"muscle": 0.5,
+		"proportions": 0.5,
+		"weight": 0.5,
+		"african-female-young": 0.222222,
+		"african-female-old": 0.111111,
+		"asian-female-young": 0.222222,
+		"asian-female-old": 0.111111,
+		"caucasian-female-young": 0.222222,
+		"caucasian-female-old": 0.111111,
+		"universal-female-young-averagemuscle-averageweight": 0.666666666666667,
+		"universal-female-old-averagemuscle-averageweight": 0.333333333333333,
+		"female-young-averagemuscle-averageweight-maxheight": 0.2,
+		"female-old-averagemuscle-averageweight-maxheight": 0.1
+	},
+	"characterColors": [
+		{
+			"name": "Skin",
+			"colors": [
+				0.705882370471954,
+				0.490196079015732,
+				0.34901961684227
+			]
+		},
+		{
+			"name": "Hair",
+			"colors": [
+				0.50196099281311,
+				0.0,
+				0.0
+			]
+		},
+		{
+			"name": "Eyes",
+			"colors": [
+				0.529411971569061,
+				0.807843029499054,
+				0.921568989753723
+			]
+		}
+	],
+	"wardrobeSet": [
+		{
+			"slot": "Body",
+			"recipe": "DefaultBody"
+		},
+		{
+			"slot": "LeftEye",
+			"recipe": "LeftEye-LowPolyEyeball"
+		},
+		{
+			"slot": "RightEye",
+			"recipe": "RightEye-LowPolyEyeball"
+		},
+		{
+			"slot": "LeftEyelash",
+			"recipe": "LeftEyelash"
+		},
+		{
+			"slot": "RightEyelash",
+			"recipe": "RightEyelash"
+		},
+		{
+			"slot": "LegsClothes",
+			"recipe": "MaleDefaultPants"
+		},
+		{
+			"slot": "ArmsClothes",
+			"recipe": "MaleDefaultShirt"
+		},
+		{
+			"slot": "Hair",
+			"recipe": "Hair-Afro01"
+		}
+	]
+}

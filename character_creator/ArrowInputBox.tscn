@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://cgfgdb7wkqojt"]
+
+[ext_resource type="Script" uid="uid://cpcrs31yxrqsc" path="res://character_creator/ArrowInputBox.gd" id="1_58007"]
+[ext_resource type="Texture2D" uid="uid://dcgrtwy6uadpu" path="res://assets/icons/left arrow.png" id="1_oiyhb"]
+[ext_resource type="Texture2D" uid="uid://4jpyqnvk8nbw" path="res://assets/icons/right arrow.png" id="2_58007"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhbxl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fgreb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3s2em"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uaiui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytbfm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gej34"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfp0k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0f2w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdffd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rq5hb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3tj8q"]
+
+[node name="ArrowInputBox" type="HBoxContainer"]
+script = ExtResource("1_58007")
+
+[node name="FieldName" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Example"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vhbxl")
+
+[node name="LeftArrow" type="Button" parent="."]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_colors/icon_hover_color = Color(0.800491, 0.800491, 0.800491, 1)
+theme_override_colors/icon_pressed_color = Color(0.621524, 0.621524, 0.621524, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fgreb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3s2em")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uaiui")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ytbfm")
+icon = ExtResource("1_oiyhb")
+expand_icon = true
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gej34")
+
+[node name="FieldValue" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Test"
+
+[node name="HSeparator3" type="HSeparator" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vfp0k")
+
+[node name="RightArrow" type="Button" parent="."]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+theme_override_colors/icon_hover_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/icon_pressed_color = Color(0.619608, 0.619608, 0.619608, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q0f2w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fdffd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rq5hb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3tj8q")
+icon = ExtResource("2_58007")
+expand_icon = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
