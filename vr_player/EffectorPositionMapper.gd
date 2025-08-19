@@ -23,19 +23,16 @@ const XR_TO_MODEL := Basis(Vector3.UP, PI)  # rotate 180° around Y
 
 
 var _head_body_offset := 0.0
-var _adjust_head_offset := 0.0
+#var _adjust_head_offset := 0.0
 var _first_run := false
 
 var head_bone_name := "Head"
-var _head_idx: int
 var l_foot_idx: int
 var r_foot_idx: int
-var _feet_adjusted := false
 
 func _ready() -> void:
 	l_foot_idx = skeleton.find_bone("LeftFoot")
 	r_foot_idx = skeleton.find_bone("RightFoot")
-	
 	
 	head_effector.set_transform_to_bone()
 	left_effector.set_transform_to_bone()
@@ -58,8 +55,6 @@ func _process(delta: float) -> void:
 
 func map_head_to_rig():
 	# Update head target pose
-	#var xr_parent = 
-
 
 	# One-time head/body spacing (works once headset is tracked)
 	if !_first_run and head_effector.global_transform.origin.y > 0.01:

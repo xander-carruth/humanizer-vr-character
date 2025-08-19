@@ -22,13 +22,11 @@ func _ready() -> void:
 	_space = get_world_3d().direct_space_state
 
 func _physics_process(delta: float) -> void:
-	_process_foot(right_eff, right_pos_weight, right_rot_weight, convert_rot_vector_to_basis(right_foot_rot_offset), delta)
-	_process_foot(left_eff,  left_pos_weight,  left_rot_weight, convert_rot_vector_to_basis(left_foot_rot_offset), delta)
+	_process_foot(right_eff, right_pos_weight, right_rot_weight, _convert_rot_vector_to_basis(right_foot_rot_offset), delta)
+	_process_foot(left_eff,  left_pos_weight,  left_rot_weight, _convert_rot_vector_to_basis(left_foot_rot_offset), delta)
 
-func convert_rot_vector_to_basis(rot_vector: Vector3) -> Basis:
+func _convert_rot_vector_to_basis(rot_vector: Vector3) -> Basis:
 	return Basis.from_euler(Vector3(deg_to_rad(rot_vector.x), deg_to_rad(rot_vector.y), deg_to_rad(rot_vector.z)))
-
-var cooldown = 0.0
 
 func _process_foot(eff: GodotIKEffector, pos_w: float, rot_w: float, basis_offset: Basis, delta: float) -> void:
 	if eff == null or pos_w == 0.0:
@@ -36,13 +34,6 @@ func _process_foot(eff: GodotIKEffector, pos_w: float, rot_w: float, basis_offse
 
 	var foot_tf : Transform3D = eff.global_transform
 	var foot_pos: Vector3     = foot_tf.origin
-	
-	# TODO: delete this
-	cooldown -= delta
-	#if cooldown <= 0.0:
-		#print("Foot pos: ", foot_pos)
-		#cooldown = 0.3
-	#
 
 	# Ray-cast straight down from a point 1 m above the current foot position.
 	var from := foot_pos + Vector3.UP
@@ -65,7 +56,7 @@ func _process_foot(eff: GodotIKEffector, pos_w: float, rot_w: float, basis_offse
 
 	# 2 · rotation — align foot Y with ground normal, keep avatar fwd in XZ
 	var avatar_fwd := -head_eff.global_transform.basis.z
-	var tgt_basis = Basis.looking_at(project_on_plane(avatar_fwd, hit_norm), hit_norm)
+	var tgt_basis = Basis.looking_at(_project_on_plane(avatar_fwd, hit_norm), hit_norm)
 	tgt_basis = tgt_basis * basis_offset
 	
 	# 3 · blend by weights
@@ -78,5 +69,5 @@ func _process_foot(eff: GodotIKEffector, pos_w: float, rot_w: float, basis_offse
 		var interp_basis := eff.global_transform.basis.slerp(tgt_basis, rot_w)
 		eff.global_transform.basis = interp_basis
 
-func project_on_plane(v: Vector3, n: Vector3) -> Vector3:
+func _project_on_plane(v: Vector3, n: Vector3) -> Vector3:
 	return v - n * v.dot(n)
